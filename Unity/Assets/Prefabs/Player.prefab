@@ -325,7 +325,7 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -333,7 +333,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -349,10 +349,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cae2d75fdd7e4844802d8cb1820c4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 15
-  jumpHeight: 5
+  speed: 10
+  jumpHeight: 10
   jump: {fileID: -1274357349905945733, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  dash: {fileID: 3142992586761556817, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  gravity: 0.02
   rb: {fileID: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  maxDashTime: 1
+  dashSpeed: 5
+  dashStoppingSpeed: 0.1
 --- !u!114 &1986207098733773219
 MonoBehaviour:
   m_ObjectHideFlags: 0
