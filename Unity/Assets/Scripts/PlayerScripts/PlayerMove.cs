@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
         jump.action.performed += OnJump;
         dash.action.performed += OnDash;
-
-
     }
 
     private void OnJump(InputAction.CallbackContext context)
