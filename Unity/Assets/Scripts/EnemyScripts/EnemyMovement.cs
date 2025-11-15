@@ -26,9 +26,6 @@ public class EnemyMovement : MonoBehaviour
 
     public GameObject AttackRange;
 
-
-
-
     void Start()
     {
         float currentMoveDistance = distance;
@@ -38,7 +35,6 @@ public class EnemyMovement : MonoBehaviour
     }
     void Update()
     {
-        //Debug.Log(direction);
         // --- Patrol Movement ---
         if (huntState)
         {
@@ -71,10 +67,12 @@ public class EnemyMovement : MonoBehaviour
         // --- Wall Detection ---
         //FÜr einzelne Objekte gut
         // collision.attachedRigidbody.gameObject.tag != "Player";
-        if (collision != null) collided = true;
-        else collided = false;
+        collided = collision != null;
 
-        if (collision.gameObject.TryGetComponent<Health>(out Health health) && collision.CompareTag("Player")) { health.Damage(155); }
+        if (collision.gameObject.TryGetComponent<Health>(out Health health) && collision.CompareTag("Player"))
+        {
+            health.Damage(155);
+        }
     }
     void UpdateRotation()
     {
@@ -89,7 +87,6 @@ public class EnemyMovement : MonoBehaviour
         {
             direction = direction * negative;
             currentMoveDistance = moveDistance - currentMoveDistance;
-
         }
         UpdateRotation();
     }
@@ -118,6 +115,4 @@ public class EnemyMovement : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
 }
