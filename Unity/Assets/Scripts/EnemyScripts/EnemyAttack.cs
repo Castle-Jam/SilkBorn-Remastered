@@ -80,5 +80,4 @@ public class PlayerAttack : MonoBehaviour
         Enemy.TryGetComponent<Health>(out Health healthValue);
         healthValue.Damage(1);
     }
-
 }
