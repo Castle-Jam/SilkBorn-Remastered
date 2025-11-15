@@ -6,16 +6,15 @@ public class EnemyAttack : MonoBehaviour
     bool DamageAreaActive;
     bool attackOnCooldown;
     bool inRange;
-    float windUpTime;
+    [SerializeField] float windUpTime;
     float currentWindUpTime;
     public GameObject AttackArea;
-
 
     void Start()
     {
         attackOnCooldown = true;
         inRange = false;
-        currentWindUpTime = 0f;
+        currentWindUpTime = 1f;
         DamageAreaActive = false;
         AttackArea.SetActive(false);
     }
@@ -25,18 +24,19 @@ public class EnemyAttack : MonoBehaviour
     {
         if (inRange)
         {
-            currentWindUpTime++;
+            currentWindUpTime += currentWindUpTime * Time.deltaTime;
+            Debug.Log(currentWindUpTime);
         }
 
         if (currentWindUpTime >= windUpTime)
         {
             DoAttack();
+            currentWindUpTime = 1f;
         }
     }
 
     public void AttackRangeDetection()
     {
-        Debug.Log("We are ready to attack!");
         inRange = true;
     }
 
@@ -45,5 +45,12 @@ public class EnemyAttack : MonoBehaviour
         DamageAreaActive = true;
         AttackArea.SetActive(true);
         DamageAreaActive = false;
+    }
+
+    public void DoDamage(GameObject Player)
+    {
+        Debug.Log("Damage");
+        Player.TryGetComponent<Health>(out Health healthValue);
+        healthValue.Damage(1);
     }
 }
