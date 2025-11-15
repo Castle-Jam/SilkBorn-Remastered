@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+<<<<<<< HEAD
     bool DamageAreaActive;
     bool attackOnCooldown;
     bool inRange;
@@ -16,10 +17,18 @@ public class EnemyAttack : MonoBehaviour
         DamageAreaActive = false;
         gameObject.SetActive(DamageAreaActive);
     } 
+=======
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+>>>>>>> 63f1b3eb (Adding Health and Attack Tags and things)
 
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         if (inRange)
         {
             currentWindUpTime++;
@@ -42,5 +51,8 @@ public class EnemyAttack : MonoBehaviour
         DamageAreaActive = true;
         gameObject.SetActive(DamageAreaActive);
         DamageAreaActive = false;
+=======
+        
+>>>>>>> 63f1b3eb (Adding Health and Attack Tags and things)
     }
 }
