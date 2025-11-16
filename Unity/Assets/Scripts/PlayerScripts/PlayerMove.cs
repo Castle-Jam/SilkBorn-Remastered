@@ -12,21 +12,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputActionReference dash;
     [SerializeField] private InputActionReference attack;
     [SerializeField] public float gravity;
-    [SerializeField] public float distanceMod;
-    [SerializeField] public LayerMask IgnoreRayCast;
+    [SerializeField] public LayerMask RayCastLayer;
     Vector2 movement = new Vector2();
-    public float floatHeight;     // Desired floating height.
-    public float liftForce;       // Force to apply when lifting the rigidbody.
-    public float damping;         // Force reduction proportional to speed (reduces bouncing).
     public Rigidbody2D rigidBody;
     bool isGrounded;
     [SerializeField] public float maxDashTime;
     [SerializeField] public float dashSpeed;
-    public float dashStoppingSpeed = 0.1f;
     private float currentDashTime;
     private float width;
     private float offset;
-    int health = 3;
 
     private void Start()
     {
@@ -105,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             case > 0.0f:
                 Vector3 pos = new Vector3(position.x + offset, position.y, 0);
+                Debug.DrawRay(pos, Vector2.right * xMovement, Color.yellow);
                 RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.right, xMovement);
 
                 if (hit)
@@ -139,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         if (yMovement < 0)
         {
             Vector3 pos = new Vector3(position.x, position.y - offset, 0);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.down, -yMovement, IgnoreRayCast);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.down, -yMovement, RayCastLayer);
 
             if (hit)
             {

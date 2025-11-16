@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5354504718583199350}
@@ -42,24 +42,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 661801623027326795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d709e724021c8742861444ecaba1303, type: 3}
+  m_Script: {fileID: 11500000, guid: 44f5c80815d3f0347928f37ecab8fb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCollisionDetect
-  PlayerDetection:
+  OnEnemyEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1007713439174153809}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: Damage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!61 &3582127815653389839
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -286,8 +274,8 @@ Camera:
   m_GameObject: {fileID: 5941152618682805770}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.07058824, g: 0, b: 0.14509805, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -312,7 +300,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 5.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -461,11 +449,14 @@ MonoBehaviour:
   jumpHeight: 20
   jump: {fileID: -1274357349905945733, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   dash: {fileID: 3142992586761556817, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  attack: {fileID: -5021914099581529925, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   gravity: 3
-  rigidBody: {fileID: 0}
+  RayCastLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  rigidBody: {fileID: 5014423035265291197}
   maxDashTime: 5
   dashSpeed: 50
-  dashStoppingSpeed: 0.1
 --- !u!114 &1986207098733773219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,18 +491,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -553,8 +532,8 @@ MonoBehaviour:
     m_ActionName: 'PlayerInput/Dash[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: df8120d7-7520-470f-a1d2-33b650992197
-    m_ActionName: 'PlayerInput/Heal[/Keyboard/e]'
+    m_ActionId: 1b444cbb-26e7-4bfc-bd43-7f32f8ac8660
+    m_ActionName: 'PlayerInput/Attack[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput
@@ -573,6 +552,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   MaxHealth: 100
-  heal: {fileID: 9033799806304967617, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  damage: {fileID: -9178612042554366263, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   CurrentHealth: 100
