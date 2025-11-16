@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -76,12 +75,21 @@ public class EnemyMovement : MonoBehaviour
     }
     public void TurnAround()
     {
-        // --- Das für Wall Turning ---
         if (collided)
         {
             direction = direction * negative;
             currentMoveDistance = moveDistance - currentMoveDistance;
+
         }
+        if (direction <= 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        // --- Das für Wall Turning ---
     }
     public void ChasePlayer()
     {
@@ -94,7 +102,7 @@ public class EnemyMovement : MonoBehaviour
         playerDirection.y = 0;
         playerDirection = playerDirection.normalized;
 
-        transform.position += playerDirection * speed * Time.deltaTime  ;
+        transform.position += playerDirection * speed * Time.deltaTime;
 
         aggroCounter += Time.deltaTime;
         if (aggroCounter >= aggroTime)
