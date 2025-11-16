@@ -21,10 +21,14 @@ public class PlayerMovement : MonoBehaviour
     private float currentDashTime;
     private float width;
     private float offset;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponentInChildren<Animator>();
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
         width = GetComponentInChildren<BoxCollider2D>().bounds.size.x;
         offset = width / 2 * 1.1f;
@@ -34,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (TryGetComponent(out Health health))
         {
+            animator.SetTrigger("died");
             health.Died += () => this.enabled = false;
         }
     }
@@ -50,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDash(InputAction.CallbackContext context)
     {
         currentDashTime = 0.0f;
+        animator.SetTrigger("dashStart");
     }
 
     private void OnAttack(InputAction.CallbackContext context)
@@ -91,6 +97,8 @@ public class PlayerMovement : MonoBehaviour
     public void GetPlayerMovement(InputAction.CallbackContext context)
     {
         movement.x = context.ReadValue<float>();
+        animator.SetBool("walking", movement.x != 0);
+        spriteRenderer.flipX = movement.x < 0;
     }
 
     public float RayCastX(Vector2 position, float xMovement)
