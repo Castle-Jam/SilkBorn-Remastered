@@ -32,42 +32,14 @@ Transform:
   m_LocalPosition: {x: 9.89, y: -3.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   m_Children:
   - {fileID: 4437292807367111520}
   - {fileID: 1550105540252408989}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   - {fileID: 2231099271420022845}
   - {fileID: 1206801348021404639}
-<<<<<<< HEAD
-=======
-  m_Children: []
->>>>>>> d870f6c9 (Kurzes ZwischenDing)
-=======
   m_Children:
   - {fileID: 4437292807367111520}
->>>>>>> 8b2b7613 (Add Enemy Collision Detection)
-=======
->>>>>>> 6990ec02 (Current State Update He Chase now and Events)
-=======
-  m_Children: []
->>>>>>> 7e0b26ee (Kurzes ZwischenDing)
-=======
-  m_Children:
-  - {fileID: 4437292807367111520}
->>>>>>> 07ba8a5c (Add Enemy Collision Detection)
-=======
->>>>>>> ad372f2b (Current State Update He Chase now and Events)
-=======
   - {fileID: 2231099271420022845}
->>>>>>> 63f1b3eb (Adding Health and Attack Tags and things)
-=======
->>>>>>> 82385b55 (Aktueller Stand für Konsti)
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4961946176813661846
