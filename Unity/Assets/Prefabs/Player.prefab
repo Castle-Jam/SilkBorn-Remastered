@@ -268,7 +268,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4ef776ab287ecc84183bdeb505cfb558, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: b5ca1588-a1c8-4e97-92ce-d2e3f44d4468
-    m_ActionName: PlayerInput/Move[/Mouse/leftButton,/Keyboard/shift,/Keyboard/space,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionName: 'PlayerInput/Move[/Mouse/leftButton,/Keyboard/shift,/Keyboard/space,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4530551528087030194}
@@ -634,7 +634,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: ba3e094c-5e04-4962-884c-02ae050183ca
-    m_ActionName: PlayerInput/Jump[/Keyboard/space]
+    m_ActionName: 'PlayerInput/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4530551528087030194}
@@ -650,11 +650,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: d80ea19d-5e6c-423b-83e4-322f51a8f6e3
-    m_ActionName: PlayerInput/Dash[/Keyboard/shift]
+    m_ActionName: 'PlayerInput/Dash[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 1b444cbb-26e7-4bfc-bd43-7f32f8ac8660
-    m_ActionName: PlayerInput/Attack[/Mouse/leftButton]
+    m_ActionName: 'PlayerInput/Attack[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput
