@@ -46,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        jump.action.performed -= OnJump;
+        dash.action.performed -= OnDash;
+    }
+
     private void OnJump(InputAction.CallbackContext context)
     {
         if (isGrounded)
