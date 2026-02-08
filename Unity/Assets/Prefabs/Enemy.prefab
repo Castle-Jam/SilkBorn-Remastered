@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2faf32e9ba60aab45856e0450dbe5899, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   speed: 5
   moveDistance: 100
@@ -200,27 +200,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aeb7ae1f49455de42af2e360b55be511, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::UniversalAttack
   windUpTime: 1
   attackDuration: 3
   cooldownDuration: 5
-  AttackArea: {fileID: 8882627931502047625}
---- !u!114 &99176899277260283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281242696621300596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e91600b69ea4774da94a66828bb9ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  windUpTime: 1
-  attackDuration: 1
-  cooldownDuration: 1
   AttackArea: {fileID: 8882627931502047625}
 --- !u!1 &573365856270910364
 GameObject:
@@ -370,7 +354,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f912ec2a892336a4884b4be2b5541b29, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTurnAround
   CollisionDetection:
     m_PersistentCalls:
@@ -384,7 +368,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4826952203016373139
@@ -535,7 +519,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ac94f2cc2d75a9418c041cfddd8c578, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::AggroTrigger
   OnPlayerEnter:
     m_PersistentCalls:
@@ -549,7 +533,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8882627931502047625
@@ -564,7 +548,7 @@ GameObject:
   - component: {fileID: 4319690346349463989}
   - component: {fileID: 1060857670102301476}
   - component: {fileID: 6456064095186702725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemyWeapon
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -700,13 +684,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ac94f2cc2d75a9418c041cfddd8c578, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::AggroTrigger
   OnPlayerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 99176899277260283}
-        m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
+      - m_Target: {fileID: 3271075415966458756}
+        m_TargetAssemblyTypeName: UniversalAttack, Assembly-CSharp
         m_MethodName: DoDamage
         m_Mode: 2
         m_Arguments:
@@ -714,7 +698,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &9077231748405423984
@@ -729,7 +713,7 @@ GameObject:
   - component: {fileID: 2663148725447458214}
   - component: {fileID: 2693433480420663101}
   - component: {fileID: 4086772524070017070}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackRangeDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,13 +849,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ac94f2cc2d75a9418c041cfddd8c578, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::AggroTrigger
   OnPlayerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 99176899277260283}
-        m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
+      - m_Target: {fileID: 3271075415966458756}
+        m_TargetAssemblyTypeName: UniversalAttack, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 1
         m_Arguments:
@@ -879,6 +863,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2

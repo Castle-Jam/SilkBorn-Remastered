@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     private float offset;
     Animator animator;
     SpriteRenderer spriteRenderer;
-    int health = 3;
 
     private void Start()
     {
@@ -102,11 +101,6 @@ public class PlayerMovement : MonoBehaviour
         position.y += yMovement;
 
         transform.position = position;
-
-        if (health == 0)
-        {
-            Die();
-        }
     }
 
     public void GetPlayerMovement(InputAction.CallbackContext context)
@@ -172,15 +166,5 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         return yMovement;
-    }
-
-    public void TakeDamage()
-    {
-        health--;
-    }
-
-    public void Die()
-    {
-
     }
 }
