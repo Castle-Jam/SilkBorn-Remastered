@@ -620,35 +620,11 @@ MonoBehaviour:
     m_ActionId: b5ca1588-a1c8-4e97-92ce-d2e3f44d4468
     m_ActionName: 'PlayerInput/Move[/Mouse/leftButton,/Keyboard/shift,/Keyboard/space,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4530551528087030194}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: GetPlayerJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: ba3e094c-5e04-4962-884c-02ae050183ca
     m_ActionName: 'PlayerInput/Jump[/Keyboard/space]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4530551528087030194}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: GetPlayerDash
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: d80ea19d-5e6c-423b-83e4-322f51a8f6e3
     m_ActionName: 'PlayerInput/Dash[/Keyboard/shift]'
   - m_PersistentCalls:
