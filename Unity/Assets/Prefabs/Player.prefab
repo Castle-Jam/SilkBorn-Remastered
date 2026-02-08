@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6895442746172176804}
+  - component: {fileID: 3383888701327218186}
   - component: {fileID: 3582127815653389839}
   m_Layer: 0
   m_Name: EnemyCollisionDetect
@@ -27,11 +28,26 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5354504718583199350}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3383888701327218186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661801623027326795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f5c80815d3f0347928f37ecab8fb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCollisionDetect
+  OnEnemyEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &3582127815653389839
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -559,10 +575,6 @@ MonoBehaviour:
   RayCastLayer:
     serializedVersion: 2
     m_Bits: 128
-  distanceMod: 0
-  floatHeight: 0
-  liftForce: 0
-  damping: 0
   rigidBody: {fileID: 5014423035265291197}
   maxDashTime: 5
   dashSpeed: 50
@@ -606,7 +618,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: b5ca1588-a1c8-4e97-92ce-d2e3f44d4468
-    m_ActionName: PlayerInput/Move[/Mouse/leftButton,/Keyboard/shift,/Keyboard/space,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionName: 'PlayerInput/Move[/Mouse/leftButton,/Keyboard/shift,/Keyboard/space,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4530551528087030194}
@@ -622,7 +634,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: ba3e094c-5e04-4962-884c-02ae050183ca
-    m_ActionName: PlayerInput/Jump[/Keyboard/space]
+    m_ActionName: 'PlayerInput/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4530551528087030194}
@@ -638,15 +650,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: d80ea19d-5e6c-423b-83e4-322f51a8f6e3
-    m_ActionName: PlayerInput/Dash[/Keyboard/shift]
+    m_ActionName: 'PlayerInput/Dash[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 1b444cbb-26e7-4bfc-bd43-7f32f8ac8660
-    m_ActionName: PlayerInput/Attack[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1b444cbb-26e7-4bfc-bd43-7f32f8ac8660
-    m_ActionName: PlayerInput/Attack[/Mouse/leftButton]
+    m_ActionName: 'PlayerInput/Attack[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput
