@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 179918033}
   - component: {fileID: 179918032}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Deco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19324,7 +19324,7 @@ GameObject:
   - component: {fileID: 1100496890}
   - component: {fileID: 1100496889}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
