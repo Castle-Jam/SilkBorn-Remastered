@@ -209,12 +209,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc77a916ca4434f72898c003761ddb6f, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::ItemMoving
   speed: 2
   moveDistance: 5
-  huntState: 0
   aggroTime: 1
+  huntState: 0
 --- !u!58 &248437667
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19244,9 +19244,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca2d0285e8274c5cae85ca90ca2d3b9, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::OnItemGet
-  ItemNearPlayer:
+  itemNearPlayer:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 248437666}
@@ -19258,7 +19258,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!58 &1065655359
@@ -19392,7 +19392,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
