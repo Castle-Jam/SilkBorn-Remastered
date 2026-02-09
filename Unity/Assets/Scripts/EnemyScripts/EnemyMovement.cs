@@ -1,39 +1,32 @@
-using System;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
-    [SerializeField] float moveDistance;
-    float distance = 0;
-    float currentMoveDistance = 0;
-    int multiplier = 10;
-    UnityEngine.Vector2 moveVector = new UnityEngine.Vector2(1, 0);
-    int negative = -1;
-    int direction = 1;
-    bool collided;
-    Transform playerLocation;
-    public bool huntState;
-    [SerializeField] int aggroTime;
-    float aggroCounter = 0f;
+    [SerializeField] private float speed;
+    [SerializeField] private float moveDistance;
+    [SerializeField] private int aggroTime;
+    [SerializeField] private bool huntState;
+    public GameObject aggroArea;
+    public GameObject damageArea;
+    public GameObject attackRange;
 
-    public GameObject AggroArea;
+    private readonly Vector2 _moveVector = new(1, 0);
+    private const int Multiplier = 10;
+    private const int Negative = -1;
 
-    public GameObject DamageArea;
+    private Transform _playerLocation;
+    private float _aggroCounter;
+    private float _currentMoveDistance;
+    private bool _collided;
+    private int _direction = 1;
 
-    public GameObject AttackRange;
-
-    void Start()
+    private void Start()
     {
-        float currentMoveDistance = distance;
-
-        playerLocation = GameObject.FindWithTag("Player").transform;
+        _playerLocation = GameObject.FindWithTag("Player").transform;
         huntState = false;
     }
-    void Update()
+
+    private void Update()
     {
         // --- Patrol Movement ---
         if (huntState)
@@ -41,73 +34,70 @@ public class EnemyMovement : MonoBehaviour
             ChasePlayer();
             return;
         }
-        if (direction == 1)
-            transform.rotation = Quaternion.Euler(0, -180, 0);
-        else
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        transform.rotation = _direction == 1 ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
         Patrol();
     }
 
-    void Patrol()
-    {
-        currentMoveDistance = currentMoveDistance + 1 * Time.deltaTime * multiplier;
-        UnityEngine.Vector2 position = transform.position;
-        position += moveVector * speed * direction * Time.deltaTime;
-        transform.position = position;
-
-        if (moveDistance <= currentMoveDistance)
-        {
-            direction = direction * negative;
-            currentMoveDistance = 0;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // --- Wall Detection ---
         //FÜr einzelne Objekte gut
         // collision.attachedRigidbody.gameObject.tag != "Player";
-        collided = collision != null;
+        _collided = collision != null;
 
-        if (collision.gameObject.TryGetComponent<Health>(out Health health) && collision.CompareTag("Player"))
-        {
+        if (collision.gameObject.TryGetComponent(out Health health) && collision.CompareTag("Player"))
             health.Damage(155);
+    }
+
+    private void Patrol()
+    {
+        _currentMoveDistance = _currentMoveDistance + 1 * Time.deltaTime * Multiplier;
+        Vector2 position = transform.position;
+        position += _moveVector * (speed * _direction * Time.deltaTime);
+        transform.position = position;
+
+        if (moveDistance <= _currentMoveDistance)
+        {
+            _direction *= Negative;
+            _currentMoveDistance = 0;
         }
     }
-    void UpdateRotation()
+
+    private void UpdateRotation()
     {
-        if (direction == 1)
-            transform.rotation = Quaternion.Euler(0, -180, 0);
-        else
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.rotation = _direction == 1 ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
     }
+
     public void TurnAround()
     {
-        if (collided)
+        if (_collided)
         {
-            direction = direction * negative;
-            currentMoveDistance = moveDistance - currentMoveDistance;
+            _direction = _direction * Negative;
+            _currentMoveDistance = moveDistance - _currentMoveDistance;
         }
+
         UpdateRotation();
     }
+
     public void ChasePlayer()
     {
         // --- Der Enemy versucht zum Spieler zu gelangen kommt aber nicht durch Wände oder über Blöcke wäre auch gut wenn er dafür nicht
         // fallen müsste hat nämlich keine Gravity bisher ---
-        if (playerLocation == null) return;
+        if (!_playerLocation) return;
 
         huntState = true;
-        UnityEngine.Vector3 playerDirection = playerLocation.position - transform.position;
+        var playerDirection = _playerLocation.position - transform.position;
         playerDirection.y = 0;
         playerDirection = playerDirection.normalized;
 
-        transform.position += playerDirection * speed * Time.deltaTime;
+        transform.position += playerDirection * (speed * Time.deltaTime);
 
-        aggroCounter += Time.deltaTime;
-        if (aggroCounter >= aggroTime)
+        _aggroCounter += Time.deltaTime;
+        if (_aggroCounter >= aggroTime)
         {
             huntState = false;
-            aggroCounter = 0;
+            _aggroCounter = 0;
         }
     }
 

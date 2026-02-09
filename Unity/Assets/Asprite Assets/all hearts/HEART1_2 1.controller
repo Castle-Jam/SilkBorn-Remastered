@@ -38,9 +38,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac04431d2f7114bc69907f24e382e58a, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: '::'
-  OnPlayerEnter:
+  onPlayerEnter:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1107 &4690023576183012914
@@ -87,8 +87,8 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 186b777e15f8941c4898c7513f760423, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_Tag:
+  m_SpeedParameter:
+  m_MirrorParameter:
+  m_CycleOffsetParameter:
+  m_TimeParameter:

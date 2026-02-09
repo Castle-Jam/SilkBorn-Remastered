@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f5c80815d3f0347928f37ecab8fb8d, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCollisionDetect
-  OnEnemyEnter:
+  onEnemyEnter:
     m_PersistentCalls:
       m_Calls: []
   m_Script: {fileID: 11500000, guid: 5d709e724021c8742861444ecaba1303, type: 3}
@@ -584,15 +584,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cae2d75fdd7e4844802d8cb1820c4f5, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 10
-  jumpHeight: 20
   jump: {fileID: -1274357349905945733, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   dash: {fileID: 3142992586761556817, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   attack: {fileID: -5021914099581529925, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  gravity: 3
-  RayCastLayer:
+  rayCastLayer:
     serializedVersion: 2
     m_Bits: 128
+  speed: 10
+  jumpHeight: 20
+  gravity: 3
   rigidBody: {fileID: 5014423035265291197}
   maxDashTime: 5
   dashSpeed: 50
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_DefaultControlScheme:
   m_DefaultActionMap: PlayerInput
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1579443119334681519}
 --- !u!114 &1007713439174153809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,5 +670,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6013d1e598e54174992f0ff5600a169b, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  MaxHealth: 2
-  CurrentHealth: 2
+  maxHealth: 2
+  currentHealth: 2

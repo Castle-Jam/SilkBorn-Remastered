@@ -158,11 +158,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   speed: 5
   moveDistance: 100
-  huntState: 0
   aggroTime: 6
-  AggroArea: {fileID: 4826952203016373139}
-  DamageArea: {fileID: 8882627931502047625}
-  AttackRange: {fileID: 9077231748405423984}
+  huntState: 0
+  aggroArea: {fileID: 4826952203016373139}
+  damageArea: {fileID: 8882627931502047625}
+  attackRange: {fileID: 9077231748405423984}
 --- !u!50 &400307921882479724
 Rigidbody2D:
   serializedVersion: 5
@@ -205,7 +205,7 @@ MonoBehaviour:
   windUpTime: 1
   attackDuration: 3
   cooldownDuration: 5
-  AttackArea: {fileID: 8882627931502047625}
+  attackArea: {fileID: 8882627931502047625}
 --- !u!1 &573365856270910364
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f912ec2a892336a4884b4be2b5541b29, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTurnAround
-  CollisionDetection:
+  collisionDetection:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4401191799637738725}
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac94f2cc2d75a9418c041cfddd8c578, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::AggroTrigger
-  OnPlayerEnter:
+  onPlayerEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4401191799637738725}
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac94f2cc2d75a9418c041cfddd8c578, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::AggroTrigger
-  OnPlayerEnter:
+  onPlayerEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3271075415966458756}
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac94f2cc2d75a9418c041cfddd8c578, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::AggroTrigger
-  OnPlayerEnter:
+  onPlayerEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3271075415966458756}

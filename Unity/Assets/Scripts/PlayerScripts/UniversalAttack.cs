@@ -1,84 +1,85 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(EnemyMovement))]
 public class UniversalAttack : MonoBehaviour
 {
-    enum AttackState { READY, WINDUP, ATTACKING, COOLDOWN }
-    private AttackState attackState;
+    [SerializeField] private float windUpTime;
+    [SerializeField] private float attackDuration;
+    [SerializeField] private float cooldownDuration;
+    public GameObject attackArea;
 
-    private EnemyMovement playerMovement;
+    private AttackState _attackState;
+    private EnemyMovement _enemyMovement;
 
-    [SerializeField] float windUpTime;
-    [SerializeField] float attackDuration; 
-    [SerializeField] float cooldownDuration;
+    private float _currentAttackDuration;
+    private float _currentCooldownTime;
+    private float _currentWindUpTime;
 
-    float currentattackDuration;
-    float currentWindUpTime;
-    float currentCooldownTime;
-
-    public GameObject AttackArea;
-
-    void Start()
+    private void Start()
     {
-        playerMovement = GetComponent<EnemyMovement>();
+        _enemyMovement = GetComponent<EnemyMovement>();
     }
 
-    void Update()
+    private void Update()
     {
-        switch (attackState)
+        switch (_attackState)
         {
-            case AttackState.WINDUP:
-                currentWindUpTime += Time.deltaTime;
-                if (currentWindUpTime >= windUpTime) DoAttack();
+            case AttackState.Windup:
+                _currentWindUpTime += Time.deltaTime;
+                if (_currentWindUpTime >= windUpTime) DoAttack();
                 break;
-            case AttackState.ATTACKING:
-                currentattackDuration += Time.deltaTime;
-                if (currentattackDuration >= attackDuration) EndAttack();
+            case AttackState.Attacking:
+                _currentAttackDuration += Time.deltaTime;
+                if (_currentAttackDuration >= attackDuration) EndAttack();
                 break;
-            case AttackState.COOLDOWN:
-                currentCooldownTime += Time.deltaTime;
-                if(currentCooldownTime >= cooldownDuration) attackState = AttackState.READY;
+            case AttackState.Cooldown:
+                _currentCooldownTime += Time.deltaTime;
+                if (_currentCooldownTime >= cooldownDuration) _attackState = AttackState.Ready;
                 break;
         }
     }
 
     private void EndAttack()
     {
-        attackState = AttackState.COOLDOWN;
-        AttackArea.SetActive(false);
+        _attackState = AttackState.Cooldown;
+        attackArea.SetActive(false);
 
-        playerMovement.enabled = true;
+        _enemyMovement.enabled = true;
     }
 
     public void Attack()
     {
-        if (attackState != AttackState.READY) return;
+        if (_attackState != AttackState.Ready) return;
 
-        attackState = AttackState.WINDUP;
-        currentWindUpTime = 0;
+        _attackState = AttackState.Windup;
+        _currentWindUpTime = 0;
 
-        playerMovement.enabled = false;
+        _enemyMovement.enabled = false;
     }
 
     public void DoAttack()
     {
-        attackState = AttackState.ATTACKING;
+        _attackState = AttackState.Attacking;
 
         Debug.Log("Attack wird ausgeführt");
 
-        AttackArea.SetActive(true);
-        currentattackDuration = 0;
+        attackArea.SetActive(true);
+        _currentAttackDuration = 0;
     }
 
-    public void DoDamage(GameObject Player)
+    public void DoDamage(GameObject player)
     {
         Debug.Log("Damage");
 
-        Player.TryGetComponent<Health>(out Health healthValue);
+        player.TryGetComponent(out Health healthValue);
         healthValue.Damage(1);
     }
 
+    private enum AttackState
+    {
+        Ready,
+        Windup,
+        Attacking,
+        Cooldown
+    }
 }
