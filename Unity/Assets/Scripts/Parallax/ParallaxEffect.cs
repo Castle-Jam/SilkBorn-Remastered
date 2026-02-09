@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class ParallaxEffect : MonoBehaviour
 {
-    private float _startingPos; //This is starting position of the sprites.
-    private float _lengthOfSprite;    //This is the length of the sprites.
-    [SerializeField] public float AmountOfParallax;  //This is amount of parallax scroll. 
-    public Camera MainCamera;   //Reference of the camera.
+    [SerializeField] public float amountOfParallax; // This is amount of parallax scroll.
+    public Camera mainCamera; // Reference of the camera.
+    private float _lengthOfSprite; // This is the length of the sprites.
+    private float _startingPos; // This is starting position of the sprites.
 
-    void Start()
+    private void Start()
     {
         //Getting the starting X position of sprite.
         _startingPos = transform.position.x;
@@ -15,23 +15,17 @@ public class ParallaxEffect : MonoBehaviour
         _lengthOfSprite = GetComponentInChildren<SpriteRenderer>().bounds.size.x;
     }
 
-    void Update()
+    private void Update()
     {
-        Vector3 Position = MainCamera.transform.position;
-        float Temp = Position.x * (1 - AmountOfParallax);
-        float Distance = Position.x * AmountOfParallax;
+        var position = mainCamera.transform.position;
+        var temp = position.x * (1 - amountOfParallax);
+        var distance = position.x * amountOfParallax;
 
-        Vector3 NewPosition = new Vector3(_startingPos + Distance, transform.position.y, transform.position.z);
+        var newPosition = new Vector3(_startingPos + distance, transform.position.y, transform.position.z);
 
-        transform.position = NewPosition;
+        transform.position = newPosition;
 
-        if (Temp > _startingPos + (_lengthOfSprite / 2))
-        {
-            _startingPos += _lengthOfSprite;
-        }
-        else if (Temp < _startingPos - (_lengthOfSprite / 2))
-        {
-            _startingPos -= _lengthOfSprite;
-        }
+        if (temp > _startingPos + _lengthOfSprite / 2) _startingPos += _lengthOfSprite;
+        else if (temp < _startingPos - _lengthOfSprite / 2) _startingPos -= _lengthOfSprite;
     }
 }

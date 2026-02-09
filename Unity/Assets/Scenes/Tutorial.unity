@@ -254,10 +254,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 991c69b10bbc0d7058d5d8faa0e9fa2a, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  AmountOfParallax: 1
-  MainCamera: {fileID: 1318302776}
+  amountOfParallax: 1
+  mainCamera: {fileID: 1318302776}
 --- !u!1 &282777575
 GameObject:
   m_ObjectHideFlags: 0
@@ -6391,10 +6391,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 991c69b10bbc0d7058d5d8faa0e9fa2a, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  AmountOfParallax: 0
-  MainCamera: {fileID: 1318302776}
+  amountOfParallax: 0
+  mainCamera: {fileID: 1318302776}
 --- !u!1001 &1109900022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7219,10 +7219,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 991c69b10bbc0d7058d5d8faa0e9fa2a, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  AmountOfParallax: 0.5
-  MainCamera: {fileID: 1318302776}
+  amountOfParallax: 0.5
+  mainCamera: {fileID: 1318302776}
 --- !u!1 &1730974290
 GameObject:
   m_ObjectHideFlags: 0
@@ -7268,10 +7268,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 991c69b10bbc0d7058d5d8faa0e9fa2a, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  AmountOfParallax: 0
-  MainCamera: {fileID: 1318302776}
+  amountOfParallax: 0
+  mainCamera: {fileID: 1318302776}
 --- !u!1 &1866377726
 GameObject:
   m_ObjectHideFlags: 0
