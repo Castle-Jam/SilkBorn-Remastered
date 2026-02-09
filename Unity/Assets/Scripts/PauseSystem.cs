@@ -5,12 +5,13 @@ public class PauseSystem : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private InputActionReference pause;
+
+    private bool _isPaused;
+
     public void Start()
     {
         pauseMenuUI.SetActive(false);
     }
-
-    private bool isPaused = false;
 
     private void OnEnable()
     {
@@ -28,16 +29,16 @@ public class PauseSystem : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext context)
     {
-        if (!isPaused)
+        if (!_isPaused)
         {
             Time.timeScale = 0f;
-            isPaused = true;
+            _isPaused = true;
             Debug.Log("PAUSE triggered");
         }
         else
         {
             Time.timeScale = 1f;
-            isPaused = false;
+            _isPaused = false;
             Debug.Log("UNPAUSE triggered");
         }
     }

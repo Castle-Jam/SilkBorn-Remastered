@@ -4,30 +4,30 @@ using UnityEngine.UIElements;
 
 public class ButtonScript : MonoBehaviour
 {
-    [SerializeField] UIDocument uIDocument;
-    private VisualElement root;
+    [SerializeField] private UIDocument uiDocument;
+
+    private VisualElement _root;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        root = uIDocument.rootVisualElement;
+        _root = uiDocument.rootVisualElement;
 
-        var playBtn = root.Q<VisualElement>("Start");
-
+        var playBtn = _root.Q<VisualElement>("Start");
         playBtn.RegisterCallback<ClickEvent>(OnClickEvent);
 
-        var quitBtn = root.Q<VisualElement>("Quit");
-
+        var quitBtn = _root.Q<VisualElement>("Quit");
         quitBtn.RegisterCallback<ClickEvent>(QuitEvent);
     }
 
     // Update is called once per frame
-    private void OnClickEvent(ClickEvent evt)
+    private static void OnClickEvent(ClickEvent _)
     {
         Debug.Log("Play Button Clicked");
         SceneManager.LoadScene("Tutorial");
     }
 
-    private void QuitEvent(ClickEvent evt)
+    private static void QuitEvent(ClickEvent _)
     {
         Debug.Log("Quit Button Clicked");
         Application.Quit();
