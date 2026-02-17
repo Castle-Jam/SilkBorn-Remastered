@@ -6,7 +6,7 @@ public class UniversalAttack : MonoBehaviour
     [SerializeField] private float windUpTime;
     [SerializeField] private float attackDuration;
     [SerializeField] private float cooldownDuration;
-    public GameObject attackArea;
+    public GameObject attackArea;   
 
     private AttackState _attackState;
     private EnemyMovement _enemyMovement;
