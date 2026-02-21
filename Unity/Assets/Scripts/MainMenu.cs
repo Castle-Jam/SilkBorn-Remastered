@@ -5,14 +5,12 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayTutorial()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
    public void PlayGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadSceneAsync("Level");
     }
-   
-
     public void QuitGame() 
     {
         Application.Quit();

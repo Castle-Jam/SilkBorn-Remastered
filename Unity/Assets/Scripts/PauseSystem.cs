@@ -1,45 +1,46 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-public class PauseSystem : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private InputActionReference pause;
+    [SerializeField] private GameObject pauseOverlay;
+    static bool gamePaused = false;
 
-    private bool _isPaused;
-
-    public void Start()
-    {
-        pauseMenuUI.SetActive(false);
-    }
-
-    private void OnEnable()
+    void Start()
     {
         pause.action.performed += OnPause;
-        pause.action.Enable();
-        pauseMenuUI.SetActive(true);
     }
-
-    private void OnDisable()
-    {
-        pause.action.performed -= OnPause;
-        pause.action.Disable();
-        pauseMenuUI.SetActive(false);
-    }
-
-    private void OnPause(InputAction.CallbackContext context)
-    {
-        if (!_isPaused)
+    public void PauseGame()
+    { Debug.Log("Game Paused");
+        gamePaused = !gamePaused;
+        if (gamePaused)
         {
-            Time.timeScale = 0f;
-            _isPaused = true;
-            Debug.Log("PAUSE triggered");
+            Time.timeScale = 0;
+            pauseOverlay.gameObject.SetActive(true);
         }
         else
         {
-            Time.timeScale = 1f;
-            _isPaused = false;
-            Debug.Log("UNPAUSE triggered");
+            Time.timeScale = 1;
+            pauseOverlay.gameObject.SetActive(false);
         }
+    }
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        PauseGame();
+    }
+    private void OnDestroy()
+    {
+        pause.action.performed -= OnPause;
+    }
+
+    public void GoMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
